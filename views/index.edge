@@ -1,14 +1,8 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hello</title>
-  </head>
-  <body>
+@layout('layouts/main.edge')
 
-    @include('partials/nav.edge')
-    <div>{{message}}</div>
-
-  </body>
-</html>
+@section('body')
+  <div class="container">
+    <h1>{{message}}</h1>
+    <img src="/public/img/avatar-2.jpg" alt="">
+  </div>
+@endsection

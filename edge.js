@@ -1,15 +1,17 @@
 const { join } = require("path")
 const { Edge } = require("edge.js")
+
 const edge = new Edge({ cache: false })
 
 edge.mount(join(__dirname, "views"))
 
-const view = (view, data) => {
+const render = (view, data = null) => {
   return (req, res) => {
-    edge.render(view, data).then((html) => {
-      res.send(html)
-    })
+    res.send(edge.renderSync(view, data))
   }
 }
+const view = (view, data = null) => {
+  return edge.renderSync(view, data)
+}
 
-module.exports = view
+module.exports = { render, view }
